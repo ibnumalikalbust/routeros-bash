@@ -1,0 +1,10 @@
+local identity [system identity get name];
+system backup save name=config;
+delay 30s;
+export file=export;
+delay 30s;
+tool e-mail send to="fazznetofficial@gmail.com" subject="Daily Report" body="Halo Boz, Ini Laporan Server $identity" file="config,export,log" start-tls=yes;
+delay 30s;
+file remove log.0.txt;
+delay 30s;
+system reboot;
